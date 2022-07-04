@@ -1,14 +1,17 @@
 package com.example.shoppinglist.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.shoppinglist.domain.ShopItem
 import com.example.shoppinglist.domain.ShopListRepository
-import java.lang.RuntimeException
 
 class ShoppingListRepositoryImpl: ShopListRepository {
 
     private val shopList = mutableListOf<ShopItem>()
+
+    init {
+        for (i in 0 until 10){
+            shopList.add(ShopItem("Name $i ", i, true))
+        }
+    }
 
     private var autoIncrementId = 0
 
